@@ -107,4 +107,27 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Download Trigger Feedback Toast
+  const downloadTriggers = document.querySelectorAll(".download-trigger");
+  downloadTriggers.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      showDownloadToast("Download started! Saving PAA Companion (.exe)... Check your browser downloads.");
+    });
+  });
+
+  function showDownloadToast(msg) {
+    let toast = document.getElementById("dlToast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "dlToast";
+      toast.style.cssText = "position: fixed; top: 24px; left: 50%; transform: translateX(-50%); background: #10b981; color: #fff; padding: 12px 24px; border-radius: 999px; font-size: 13px; font-weight: 700; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5); z-index: 9999; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;";
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = "<span>⚡</span> <span>" + msg + "</span>";
+    toast.style.display = "flex";
+    setTimeout(() => {
+      if (toast) toast.style.display = "none";
+    }, 5000);
+  }
 });
