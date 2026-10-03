@@ -7,7 +7,7 @@ export class GroqClient implements ILLMClient {
 
   constructor(
     apiKey: string = process.env.GROQ_API_KEY || "",
-    defaultModel: string = process.env.GROQ_MODEL || "llama-3.3-70b-versatile"
+    defaultModel: string = process.env.GROQ_MODEL || "qwen/qwen3.8-27b"
   ) {
     this.apiKey = apiKey;
     this.defaultModel = defaultModel;
@@ -31,10 +31,11 @@ export class GroqClient implements ILLMClient {
   }
 
   async isHealthy(): Promise<boolean> {
-    if (!this.apiKey) return false;
+    const key = this.apiKey || process.env.GROQ_API_KEY || "";
+    if (!key) return false;
     try {
       const response = await fetch(`${this.baseUrl}/models`, {
-        headers: { Authorization: `Bearer ${this.apiKey}` },
+        headers: { Authorization: `Bearer ${key}` },
       });
       return response.ok;
     } catch {

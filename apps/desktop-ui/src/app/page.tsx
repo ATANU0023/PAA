@@ -366,7 +366,23 @@ export default function CompanionDashboard() {
         body: JSON.stringify({ prompt: taskText, maxSteps: 6, autonomyLevel }),
       });
       const data = await res.json();
-      if (data.finalResponse) {
+      const isFailed = data.status === "failed" || Boolean(data.error);
+
+      if (isFailed) {
+        const errorMsg = data.finalResponse || data.error || "Task execution failed.";
+        setThought(errorMsg);
+        setAgentState("error");
+        setTimelineSteps((prev) => [
+          ...prev,
+          {
+            stepNumber: prev.length + 1,
+            state: "error",
+            thought: errorMsg,
+            timestamp: new Date().toLocaleTimeString(),
+            durationMs: data.durationMs || 420,
+          },
+        ]);
+      } else if (data.finalResponse) {
         setThought(data.finalResponse);
         setAgentState("success");
         setTimelineSteps((prev) => [
@@ -379,9 +395,6 @@ export default function CompanionDashboard() {
             durationMs: data.durationMs || 420,
           },
         ]);
-      } else if (data.error) {
-        setThought(`Execution error: ${data.error}`);
-        setAgentState("error");
       }
     } catch {
       setThought("Agent server is offline. Run 'npm run dev:api' in terminal.");

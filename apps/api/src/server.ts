@@ -1,3 +1,11 @@
+import dotenv from "dotenv";
+import path from "path";
+
+// Automatically load .env from root monorepo or current directory
+dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+dotenv.config();
+
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { AgentKernel } from "@paa/agent-kernel";
