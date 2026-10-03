@@ -11,7 +11,7 @@
 
 **An open-source, local-first autonomous digital employee and desktop companion that wanders your Windows taskbar, executes real-world research & coding tasks, and features instant Groq cloud failover.**
 
-[⬇️ Download Installer (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA%20Companion%20Setup%200.1.0.exe) • [🚀 Download Portable (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA%20Companion%200.1.0.exe) • [📦 GitHub Releases](https://github.com/ATANU0023/PAA/releases/tag/v0.1.0) • [🌐 Live Showcase](https://github.com/ATANU0023/PAA)
+[⬇️ Download Installer (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA.Companion.Setup.0.1.0.exe) • [🚀 Download Portable (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA.Companion.0.1.0.exe) • [📦 GitHub Releases](https://github.com/ATANU0023/PAA/releases/tag/v0.1.0) • [🌐 Live Showcase](https://github.com/ATANU0023/PAA)
 
 </div>
 
@@ -31,8 +31,8 @@
 
 | Package | Type | Description | Link |
 | :--- | :--- | :--- | :--- |
-| **PAA Companion Installer** | `.exe` (~173 MB) | Standard Windows Setup. Includes Desktop shortcut, Start Menu entry, and uninstaller. | [Download Setup (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA%20Companion%20Setup%200.1.0.exe) |
-| **PAA Companion Portable** | `.exe` (~173 MB) | Standalone single-file executable. Runs directly off USB / external SSD without install. | [Download Portable (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA%20Companion%200.1.0.exe) |
+| **PAA Companion Installer** | `.exe` (~173 MB) | Standard Windows Setup. Includes Desktop shortcut, Start Menu entry, and uninstaller. | [Download Setup (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA.Companion.Setup.0.1.0.exe) |
+| **PAA Companion Portable** | `.exe` (~173 MB) | Standalone single-file executable. Runs directly off USB / external SSD without install. | [Download Portable (.exe)](https://github.com/ATANU0023/PAA/releases/download/v0.1.0/PAA.Companion.0.1.0.exe) |
 | **All Releases & Checksums** | Source / Tag | View release changelog, blockmaps, and SHA-256 integrity checksums. | [GitHub Releases v0.1.0](https://github.com/ATANU0023/PAA/releases/tag/v0.1.0) |
 
 ---
