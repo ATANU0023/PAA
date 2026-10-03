@@ -1,0 +1,23 @@
+{
+  "name": "paa-root",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PAA - Personal Autonomous Agent & Desktop Companion",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm --workspace=@paa/api run dev",
+    "dev:ui": "npm --workspace=@paa/desktop-ui run dev",
+    "test:kernel": "npm --workspace=@paa/agent-kernel run test:run",
+    "build": "npm run --workspaces --if-present build",
+    "dev:desktop": "npm --workspace=@paa/desktop-ui run dev:desktop",
+    "dist": "npm --workspace=@paa/desktop-ui run dist:win",
+    "preview:landing": "npx serve apps/landing-page -p 3002"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.3"
+  }
+}

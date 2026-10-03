@@ -1,0 +1,54 @@
+{
+  "name": "@paa/desktop-ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start",
+    "dev:desktop": "electron electron-main.js",
+    "dist:win": "next build && electron-builder --win"
+  },
+  "dependencies": {
+    "@paa/shared": "*",
+    "lucide-react": "^1.47.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "jimp": "^1.6.1",
+    "typescript": "^5.7.3"
+  },
+  "main": "electron-main.js",
+  "build": {
+    "appId": "com.paa.companion",
+    "productName": "PAA Companion",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron-main.js",
+      "preload.js",
+      "out/**/*",
+      "public/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

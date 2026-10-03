@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAA — Autonomous AI Employee & Floating Desktop Companion</title>
+  <meta name="description" content="PAA is an open-source, local-first autonomous digital employee and desktop companion that wanders your Windows taskbar, executes real coding and research tasks, and supports instant Groq cloud fallback.">
+  <meta property="og:title" content="PAA — Personal Autonomous Agent">
+  <meta property="og:description" content="Your autonomous AI employee living on your Windows screen. Download for Windows 10/11.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#06080d">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow -->
+  <div class="ambient-glow"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </div>
+      <div class="brand-title">
+        PAA
+        <span class="version-badge">v0.1.0-alpha</span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#architecture" class="nav-link">Hybrid AI</a>
+      <a href="#download" class="nav-link">Download</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="https://github.com" target="_blank" rel="noreferrer" class="btn btn-secondary" style="padding: 10px 18px; font-size: 13px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        GitHub
+      </a>
+      <a href="#download" class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">
+        ⬇ Download .exe
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="pill-badge">
+      <span style="width: 6px; height: 6px; border-radius: 50%; background: #34d399; box-shadow: 0 0 8px #34d399;"></span>
+      <span>v0.1.0 Now Available for Windows 10 & 11</span>
+    </div>
+
+    <h1 class="hero-title">
+      Your Autonomous AI Employee, Living On Your Screen.
+    </h1>
+
+    <p class="hero-subtitle">
+      PAA lives directly on your Windows taskbar. It wanders, researches, and writes code autonomously—combining 100% private local Ollama models with lightning-fast Groq cloud failover.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="#download" class="btn btn-primary" id="heroDownloadBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        Download for Windows (.exe)
+      </a>
+
+      <a href="#interactive-demo" class="btn btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="10 8 16 12 10 16 10 8"></polygon>
+        </svg>
+        Try Interactive Demo
+      </a>
+    </div>
+
+    <div class="hero-subtext">
+      <span>✓ 100% Free & Open Source</span>
+      <span>•</span>
+      <span>✓ Zero Bloatware</span>
+      <span>•</span>
+      <span>✓ Windows 10/11 64-bit</span>
+    </div>
+
+    <!-- Interactive Simulator (Live Taskbar Mockup) -->
+    <div class="simulator-container" id="interactive-demo">
+      <div class="simulator-header">
+        <div class="window-dots">
+          <div class="window-dot dot-red"></div>
+          <div class="window-dot dot-yellow"></div>
+          <div class="window-dot dot-green"></div>
+        </div>
+        <div class="simulator-title">PAA DESKTOP SIMULATOR • CLICK PET TO TEST ORBIT MENU</div>
+        <div style="font-size: 10px; color: #64748b;">HYBRID RUNTIME</div>
+      </div>
+
+      <div class="simulator-screen">
+        <div class="screen-grid"></div>
+
+        <!-- State Testing Buttons -->
+        <div class="demo-state-bar">
+          <span style="font-size: 11px; color: #64748b; margin-right: 6px; display: flex; align-items: center;">Test State:</span>
+          <button class="state-btn active" data-state="idle">Idle</button>
+          <button class="state-btn" data-state="thinking">Thinking</button>
+          <button class="state-btn" data-state="coding">Coding</button>
+          <button class="state-btn" data-state="success">Success</button>
+        </div>
+
+        <!-- The Companion on the Taskbar -->
+        <div class="mockup-pet-anchor" id="mockupPetAnchor">
+          <div class="pet-click-tip">👈 Click Me!</div>
+
+          <!-- Dynamic Speech Bubble -->
+          <div id="demoSpeechBubble" style="display: none; margin-bottom: 12px; background: rgba(14, 18, 28, 0.95); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 12px; padding: 6px 14px; font-size: 11px; color: #f1f5f9; box-shadow: 0 8px 24px rgba(0,0,0,0.6); position: relative;">
+            <div id="demoBubbleText">Refactoring database connector...</div>
+            <div style="position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid rgba(14, 18, 28, 0.95);"></div>
+          </div>
+
+          <!-- Circular Radial Orbit Action Menu -->
+          <div class="orbit-menu-container" id="orbitMenu" style="display: none;">
+            <!-- Button 1: Chat -->
+            <button class="radial-orbit-btn" style="--tx: -55px; --ty: -55px;" title="Prompt Agent">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </button>
+            <!-- Button 2: Pause -->
+            <button class="radial-orbit-btn" style="--tx: 0px; --ty: -75px;" title="Pause Execution">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="10" y1="15" x2="10" y2="9"></line><line x1="14" y1="15" x2="14" y2="9"></line></svg>
+            </button>
+            <!-- Button 3: Roam -->
+            <button class="radial-orbit-btn" style="--tx: 55px; --ty: -55px;" title="Toggle Roam">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 7 11 12 11s8 .5 8 2.62V16"></path><path d="M20 20v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg>
+            </button>
+            <!-- Button 4: Settings -->
+            <button class="radial-orbit-btn" style="--tx: -65px; --ty: -10px;" title="AI & Groq Settings">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
+            <!-- Button 5: Full HUD -->
+            <button class="radial-orbit-btn" style="--tx: 65px; --ty: -10px;" title="Open Developer Dashboard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
+            </button>
+          </div>
+
+          <!-- Pixel Cat SVG Sprite -->
+          <div id="mockupPet" style="image-rendering: pixelated; width: 100px; height: 100px; filter: drop-shadow(0 6px 14px rgba(99, 102, 241, 0.45));">
+            <svg viewBox="0 0 48 48" width="100" height="100" style="shape-rendering: crispEdges;">
+              <!-- Shadow -->
+              <ellipse cx="24" cy="44" rx="12" ry="3" fill="rgba(0, 0, 0, 0.45)"/>
+              <!-- Tail -->
+              <rect x="10" y="32" width="3" height="3" fill="#2d3748" />
+              <rect x="7" y="30" width="3" height="3" fill="#2d3748" />
+              <rect x="5" y="27" width="3" height="4" fill="#6366f1" />
+              <rect x="6" y="25" width="3" height="3" fill="#818cf8" />
+              <!-- Ears -->
+              <rect x="15" y="11" width="3" height="3" fill="#1e293b" />
+              <rect x="14" y="14" width="5" height="4" fill="#1e293b" />
+              <rect x="16" y="14" width="2" height="3" fill="#ec4899" />
+              <rect x="30" y="11" width="3" height="3" fill="#1e293b" />
+              <rect x="29" y="14" width="5" height="4" fill="#1e293b" />
+              <rect x="30" y="14" width="2" height="3" fill="#ec4899" />
+              <!-- Head -->
+              <rect x="15" y="16" width="18" height="13" fill="#1e293b" />
+              <rect x="13" y="18" width="22" height="9" fill="#1e293b" />
+              <rect x="16" y="17" width="16" height="10" fill="#334155" />
+              <rect x="17" y="18" width="14" height="2" fill="#475569" />
+              <!-- Visor Crest -->
+              <rect x="22" y="17" width="4" height="3" fill="#6366f1" />
+              <rect x="23" y="18" width="2" height="1" fill="#ffffff" />
+              <!-- Eyes -->
+              <rect x="17" y="21" width="4" height="4" fill="#090d16" />
+              <rect x="18" y="21" width="3" height="3" fill="#6366f1" />
+              <rect x="19" y="21" width="1" height="1" fill="#ffffff" />
+              <rect x="27" y="21" width="4" height="4" fill="#090d16" />
+              <rect x="28" y="21" width="3" height="3" fill="#6366f1" />
+              <rect x="29" y="21" width="1" height="1" fill="#ffffff" />
+              <!-- Cheeks & Nose -->
+              <rect x="14" y="24" width="2" height="1" fill="rgba(244, 114, 182, 0.6)" />
+              <rect x="32" y="24" width="2" height="1" fill="rgba(244, 114, 182, 0.6)" />
+              <rect x="23" y="24" width="2" height="1" fill="#f472b6" />
+              <rect x="23" y="26" width="2" height="1" fill="#94a3b8" />
+              <!-- Collar & Body -->
+              <rect x="17" y="29" width="14" height="2" fill="#0f172a" />
+              <rect x="22" y="30" width="4" height="3" fill="#6366f1" />
+              <rect x="16" y="31" width="16" height="10" fill="#1e293b" />
+              <rect x="19" y="32" width="10" height="7" fill="#334155" />
+              <rect x="21" y="33" width="6" height="5" fill="#f1f5f9" />
+              <!-- Feet -->
+              <rect x="17" y="40" width="4" height="3" fill="#1e293b" />
+              <rect x="27" y="40" width="4" height="3" fill="#1e293b" />
+
+              <!-- Coding Laptop Accessory (Conditional) -->
+              <g id="pixelLaptop" style="display: none;">
+                <rect x="15" y="38" width="18" height="3" fill="#475569" />
+                <rect x="17" y="30" width="14" height="8" fill="#0f172a" />
+                <rect x="19" y="32" width="6" height="1" fill="#22c55e" />
+                <rect x="19" y="34" width="9" height="1" fill="#4ade80" />
+              </g>
+              <!-- Thinking Bulb Accessory (Conditional) -->
+              <g id="pixelBulb" style="display: none;">
+                <rect x="23" y="4" width="2" height="3" fill="#eab308" />
+                <rect x="21" y="3" width="6" height="2" fill="#fde047" />
+              </g>
+              <!-- Success Stars Accessory (Conditional) -->
+              <g id="pixelStars" style="display: none;">
+                <rect x="8" y="10" width="3" height="3" fill="#facc15" />
+                <rect x="37" y="8" width="3" height="3" fill="#4ade80" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Windows Taskbar -->
+        <div class="mockup-taskbar">
+          <div class="taskbar-start">
+            <div class="taskbar-icon" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <div class="taskbar-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <div class="taskbar-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+          </div>
+
+          <div class="taskbar-tray">
+            <span>ENG</span>
+            <span>10:42 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <div class="section-badge">
+      <span class="pill-badge" style="margin-bottom: 0;">Built for Autonomous Productivity</span>
+    </div>
+    <h2 class="section-title">Why Developers & Power Users Love PAA</h2>
+    <p class="section-subtitle">A native screen companion that respects your attention, doesn't clutter your workspace, and actually gets work done.</p>
+
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <div class="feature-icon-box" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 7 11 12 11s8 .5 8 2.62V16"></path><path d="M20 20v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg>
+        </div>
+        <h3 class="feature-title">Taskbar Pacing & Roaming</h3>
+        <p class="feature-desc">Wanders smoothly across your taskbar with screen edge-detection and waddling physics. Never gets in your way or covers your code.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <div class="feature-icon-box" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        </div>
+        <h3 class="feature-title">Hybrid Local + Groq Cloud</h3>
+        <p class="feature-desc">Runs 100% private offline with Ollama on external drives. If local models are busy or offline, it automatically fails over to Groq at 300+ tok/s.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <div class="feature-icon-box" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h3 class="feature-title">Zero-Clutter Radial Orbit</h3>
+        <p class="feature-desc">No ugly boxes or permanent status bars. Clicking the mascot pops open a smooth circular orbital action dock with prompt, pause, and roaming toggles.</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card">
+        <div class="feature-icon-box" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+        </div>
+        <h3 class="feature-title">Real Operating System Tools</h3>
+        <p class="feature-desc">Equipped with real tools: live web research, reading and writing files, git status audits, and safe local shell execution.</p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card">
+        <div class="feature-icon-box" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 class="feature-title">Autonomy Guardrails (L0 - L3)</h3>
+        <p class="feature-desc">You are always in control. Switch boundaries from L0 (Read-Only Observer) to L1 (Approval Required) and L2 (Safe Autonomous Execution).</p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card">
+        <div class="feature-icon-box" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </div>
+        <h3 class="feature-title">Pro Developer HUD</h3>
+        <p class="feature-desc">One click launches the full developer control center with step-by-step execution trees, token latency metrics, and raw telemetry stream.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="download-section" id="download">
+    <div class="section-badge">
+      <span class="pill-badge" style="margin-bottom: 0;">Direct Download</span>
+    </div>
+    <h2 class="section-title">Get PAA for Your Machine</h2>
+    <p class="section-subtitle">Download the installer or grab the portable standalone version to run directly from an external drive.</p>
+
+    <div class="download-cards-grid">
+      <!-- Card 1: Windows Installer -->
+      <div class="download-card-primary">
+        <div>
+          <span class="dl-card-badge">RECOMMENDED</span>
+          <h3 class="dl-card-title">PAA Companion Installer</h3>
+          <p class="dl-card-desc">Standard Windows Setup package. Automatically sets up desktop and start menu shortcuts with auto-update support.</p>
+          
+          <ul class="dl-specs-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Windows 10 / 11 (64-bit)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Automatic Start Menu & Desktop Shortcut
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Version 0.1.0 • ~75 MB
+            </li>
+          </ul>
+        </div>
+
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 16px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download PAA-Setup-0.1.0.exe
+        </a>
+      </div>
+
+      <!-- Card 2: Portable Version -->
+      <div class="download-card-secondary">
+        <div>
+          <span class="dl-card-badge" style="color: #94a3b8;">NO INSTALL REQUIRED</span>
+          <h3 class="dl-card-title">Portable Standalone</h3>
+          <p class="dl-card-desc">Single standalone executable. Drop it on a USB pendrive or external SSD and run on any PC with zero configuration.</p>
+          
+          <ul class="dl-specs-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Zero Installation
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Run directly off External SSD / USB
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Version 0.1.0 • ~75 MB
+            </li>
+          </ul>
+        </div>
+
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+          Download Portable .exe
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I need a high-end gaming GPU to run PAA?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          No! While PAA can run 100% locally on Ollama (Qwen 2.5 / Llama 3) if you have a GPU or external drive, it also includes a built-in Groq Cloud fallback that runs at 300+ tokens/sec on any lightweight laptop using a free Groq API key.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is my code and browsing private?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          Yes. PAA is local-first. When running in Local Ollama mode, all prompts, thoughts, embeddings, and tool executions stay 100% on your machine with zero data transmitted to any cloud servers.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I pause or disable the pet's walking animation?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          Yes! Click the pet to open the circular orbit menu and click the green footprint icon to toggle Roaming Mode on or off. You can also drag the pet to any corner of any screen.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is PAA open source?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer" style="display: none;">
+          Yes! PAA is released under the MIT License. You are free to inspect the code, build custom tools, add new pixel art skins, or adapt it to your workflow.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>
+      © 2026 PAA (Personal Autonomous Agent) • MIT License
+    </div>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#download">Download</a>
+      <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

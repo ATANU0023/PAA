@@ -1,0 +1,392 @@
+:root {
+  --bg-obsidian: #07090e;
+  --bg-surface: #0e121b;
+  --bg-surface-elevated: #161c28;
+  --bg-surface-hover: #1e2638;
+  --bg-glass: rgba(14, 18, 27, 0.82);
+  --bg-glass-card: rgba(22, 28, 40, 0.65);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-accent: rgba(99, 102, 241, 0.35);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-accent: #818cf8;
+
+  --color-primary: #6366f1;
+  --color-cyan: #06b6d4;
+  --color-emerald: #10b981;
+  --color-amber: #f59e0b;
+  --color-rose: #f43f5e;
+  --color-purple: #a855f7;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-obsidian);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.35);
+}
+
+/* Code & Monospace styling */
+pre, code, .font-mono {
+  font-family: "JetBrains Mono", "Fira Code", Consolas, Menlo, Monaco, monospace;
+}
+
+/* ========================================== */
+/* RETRO PIXEL ART COMPANION KEYFRAMES        */
+/* ========================================== */
+@keyframes pixelIdle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes pixelWaddle {
+  0%, 100% {
+    transform: rotate(-3deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-3px);
+  }
+}
+
+@keyframes pixelFootLeft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes pixelFootRight {
+  0%, 100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pixelJump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pixelCodingBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes pixelTailSwish {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes pixelBlink {
+  0%, 88%, 100% {
+    transform: scaleY(1);
+  }
+  94% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes pixelEyeThink {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+}
+
+@keyframes pixelPawsTyping {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes pixelBulbFloat {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+@keyframes pixelGearSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pixelStarTwinkle {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes pixelShadowBreath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(0.88);
+    opacity: 0.35;
+  }
+}
+
+@keyframes pixelShadowBounce {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  40% {
+    transform: scale(0.6);
+    opacity: 0.2;
+  }
+}
+
+.anim-pixel-idle {
+  animation: pixelIdle 2.2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.anim-pixel-waddle {
+  animation: pixelWaddle 0.4s steps(2, start) infinite;
+  transform-origin: bottom center;
+}
+
+.anim-pixel-foot-left {
+  animation: pixelFootLeft 0.4s steps(2, start) infinite;
+}
+
+.anim-pixel-foot-right {
+  animation: pixelFootRight 0.4s steps(2, start) infinite;
+}
+
+.anim-pixel-jump {
+  animation: pixelJump 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  transform-origin: bottom center;
+}
+
+.anim-pixel-coding-bob {
+  animation: pixelCodingBob 0.25s steps(2, start) infinite;
+}
+
+.anim-pixel-tail {
+  transform-origin: 10px 32px;
+  animation: pixelTailSwish 1.4s ease-in-out infinite;
+}
+
+.anim-pixel-blink {
+  transform-origin: 24px 22px;
+  animation: pixelBlink 4.2s infinite;
+}
+
+.anim-pixel-eye-think {
+  animation: pixelEyeThink 1.8s ease-in-out infinite;
+}
+
+.anim-pixel-typing-paws {
+  animation: pixelPawsTyping 0.18s steps(2, start) infinite;
+}
+
+.anim-pixel-bulb {
+  animation: pixelBulbFloat 1.2s ease-in-out infinite;
+}
+
+.anim-pixel-gear {
+  transform-origin: 35px 24px;
+  animation: pixelGearSpin 3s linear infinite;
+}
+
+.anim-pixel-stars {
+  animation: pixelStarTwinkle 0.8s ease-in-out infinite;
+}
+
+.anim-pixel-shadow {
+  transform-origin: 24px 44px;
+  animation: pixelShadowBreath 2.2s ease-in-out infinite;
+}
+
+.anim-pixel-shadow-bounce {
+  transform-origin: 24px 44px;
+  animation: pixelShadowBounce 0.75s ease-in-out infinite;
+}
+
+/* ========================================== */
+/* DESKTOP WIDGET TRANSPARENCY STYLES        */
+/* ========================================== */
+html.widget-mode,
+body.widget-mode,
+div#__next.widget-mode,
+main.widget-mode {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  user-select: none !important;
+}
+
+.drag-handle {
+  -webkit-app-region: drag;
+  cursor: grab;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* ========================================== */
+/* SPEECH BUBBLE & GLASS COMPONENTS           */
+/* ========================================== */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.anim-float-gentle {
+  animation: floatGentle 3s ease-in-out infinite;
+}
+
+/* Pulse Beacon */
+@keyframes pulseBeacon {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+.pulse-beacon {
+  animation: pulseBeacon 2s infinite;
+}
+
+/* ========================================== */
+/* RADIAL CIRCULAR ORBIT MENU                */
+/* ========================================== */
+@keyframes radialPopIn {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(var(--tx), var(--ty)) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(1);
+    opacity: 1;
+  }
+}
+
+.radial-orbit-btn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 18, 28, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.75), 0 0 10px rgba(99, 102, 241, 0.3);
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease, border-color 0.15s ease;
+  animation: radialPopIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  z-index: 50;
+  color: #f1f5f9;
+}
+
+.radial-orbit-btn:hover {
+  transform: translate(var(--tx), var(--ty)) scale(1.22) !important;
+  border-color: #818cf8;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
+  background: rgba(30, 38, 58, 0.98);
+}
+
